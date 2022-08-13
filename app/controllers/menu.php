@@ -14,6 +14,7 @@ class Menu extends Controller{
 
             $_SESSION['product_id'] = $_GET['add_ProductID'];
             $_SESSION['so_luong'] = $_GET['so_luong_mua'];
+            // $_SESSION['thanh_tien'] = $_GET['so_luong_mua'];
             show($_SESSION);
         }
 

@@ -34,27 +34,40 @@
         <div>
             <form method="GET">
                 <div class="form-item" hidden={true}>
-                        <input id="ProductID" type="text" name="add_ProductID" placeholder="">
+                    <input id="ProductID" type="text" name="order_ProductID" value=<?=$data['products_list']->ProductID?>>
+                </div>
+                <div class="form-item" hidden={true}>
+                    <input id="SoLuong" type="text" name="order_SoLuong" value=<?=$_SESSION['so_luong']?>>
+                </div>
+                <div class="form-item" hidden={true}>
+                    <input id="SoLuong" type="text" name="order_ThanhTien" value=<?=$data['thanh_tien']?>>
                 </div>
                 <div class="form-item">
                     <label for="thanh_tien">Thành tiền: </label>
                     <span id="thanh_tien"><?php
-                     echo $_SESSION['so_luong'] * $data['products_list']->Price;
+                     echo $data['thanh_tien'] . " VND";
                      ?></span>
                 </div>
                 <br/>
+                <h3>Thong tin khach hang</h3>
                 <div class="form-item">
                     <label for="SoLuongMua">Tên</label>
-                    <input id="SoLuongMua" type="text" name="so_luong_mua">
+                    <input id="SoLuongMua" type="text" name="order_Ten">
                 </div>
                 <div class="form-item">
                     <label for="SoLuongMua">Địa chỉ</label>
-                    <input id="SoLuongMua" type="text" name="so_luong_mua">
+                    <input id="SoLuongMua" type="text" name="order_DiaChi">
                 </div>
                 <div class="form-item">
                     <label for="SoLuongMua">Số điện thoại</label>
-                    <input id="SoLuongMua" type="text" name="so_luong_mua">
+                    <input id="SoLuongMua" type="text" name="order_SDT">
                 </div>
+                <div class="form-item">
+                    <label for="SoLuongMua">Ghi chu</label>
+                    <input id="SoLuongMua" type="text" name="order_Note">
+                </div>
+                <br/>
+                <br/>
                 <input id="update_button" class="btn btn btn-dark" name="submit" type="submit" value="Dat hang"></input>
             </form>
         </div>

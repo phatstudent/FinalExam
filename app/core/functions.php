@@ -15,7 +15,7 @@ function get_random_string_max($length) {
 
 	for($i=0;$i<$length;$i++) {
 
-		$random = rand(0,61);
+		$random = rand(0,9);
 		
 		$text .= $array[$random];
 

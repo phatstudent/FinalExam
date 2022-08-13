@@ -8,17 +8,19 @@ class User{
 
         $_SESSION['error'] ="";
         if(isset($POST['username']) && isset($POST['password'])){
-            $arr['username'] = $POST['username'];
-            $arr['password'] = $POST['password'];
-            $querry = "select * from users where username = :username && password = :password limit 1";
+            $arr['UserName'] = $POST['username'];
+            $arr['Password'] = $POST['password'];
+            $querry = "select * from account where UserName = :UserName && Password = :Password limit 1";
 
             $data = $DB->read($querry, $arr);
             
             if(is_array($data)){
                 //logged in
-                $_SESSION['user_id'] = $data[0]->id;
-                $_SESSION['user_name'] = $data[0]->username;
-                $_SESSION['user_url'] = $data[0]->url_address;
+                $_SESSION['user_name'] = $data[0]->UserName;
+                $_SESSION['AccountType'] = $data[0]->AccountType;
+                $_SESSION['Status'] = $data[0]->Status;
+                header("Location:". ROOT);
+                die;
             }else{
                 $_SESSION['error'] = "wrong username or password";
             }
@@ -60,15 +62,13 @@ class User{
 
         if(isset($_SESSION['user_url'])){
 
-            $arr['user_url'] = $_SESSION['user_url'];
+            $arr['UserName'] = $_SESSION['user_name'];
 
-            $querry = "select * from users where url_address = :user_url limit 1";
+            $querry = "select * from account where UserName = :UserName limit 1";
             $data = $DB->read($querry, $arr);
             if(is_array($data)){
                 //logged in
-                $_SESSION['user_id'] = $data[0]->id;
-                $_SESSION['user_name'] = $data[0]->username;
-                $_SESSION['user_url'] = $data[0]->url_address;
+                $_SESSION['user_name'] = $data[0]->UserName;
 
                 return true;
             }

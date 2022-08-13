@@ -11,6 +11,12 @@ class Cart extends Controller{
             show($_SESSION);
             $result = $product->get_one_product($_SESSION['product_id']);
             $data['products_list'] = $result[0];
+            $data['thanh_tien'] = $_SESSION['so_luong'] * $data['products_list']->Price;
+        }
+
+        if(isset($_GET['order_Ten'])){
+            // show($_GET);
+            $product->add_order($_GET);
         }
 
         $this->view("pizza/cart", $data);
