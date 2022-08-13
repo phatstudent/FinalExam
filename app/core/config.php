@@ -7,9 +7,9 @@ define('WEBSITE_TITLE', "My Website");
 /*set database variables*/
 
 define('DB_TYPE','mysql');
-define('DB_NAME','minima_db');
+define('DB_NAME','pizzadb');
 define('DB_USER','root');
-define('DB_PASS','');
+define('DB_PASS','root');
 define('DB_HOST','localhost');
 
 /*protocal type http or https*/
