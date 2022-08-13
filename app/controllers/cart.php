@@ -8,7 +8,7 @@ class Cart extends Controller{
         $product = $this->loadModel("product");
 
         if(isset($_SESSION['product_id'])){
-            show($_SESSION);
+            // show($_SESSION);
             $result = $product->get_one_product($_SESSION['product_id']);
             $data['products_list'] = $result[0];
             $data['thanh_tien'] = $_SESSION['so_luong'] * $data['products_list']->Price;

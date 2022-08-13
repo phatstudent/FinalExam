@@ -12,6 +12,8 @@
                 </div>
             <?php endif; ?>
         </div>
+
+        <?php if(!isset($_SESSION['user_name'])): ?>
         <ul class="list-sidebar bg-defoult">
             <li> <a href="#" data-toggle="collapse" data-target="#players" class="collapsed active"> <i class="fa fa-th-large"></i> <span class="nav-label"> Pizza </span> <span class="fa fa-chevron-left pull-right"></span> </a>
                 <ul class="sub-menu collapse" id="players">
@@ -20,18 +22,19 @@
                     <!-- <li><a href="<?=ROOT?>players/AddPlayer">Add players</a></li> -->
                 </ul>
             </li>
-            <!-- <li> <a href="#" data-toggle="collapse" data-target="#clubs" class="collapsed active"> <i class="fa fa-bar-chart-o"></i> <span class="nav-label">Clubs</span> <span class="fa fa-chevron-left pull-right"></span> </a>
-                <ul class="sub-menu collapse" id="clubs">
-                    <li><a href="<?=ROOT?>clubs">Show all</a></li>
-                    <li><a href="<?=ROOT?>clubs/AddClub">Add clubs</a></li>
-                </ul>
-            </li> -->
-            
-            <!--<li> <a href="#"><i class="fa fa-laptop"></i> <span class="nav-label">Grid options</span></a> </li>
-            <li> <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a> </li>
-            <li> <a href=""><i class="fa fa-pie-chart"></i> <span class="nav-label">Metrics</span> </a></li>
-            <li> <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Other Pages</span></a> </li> -->
         </ul>
+        <?php else: ?>
+            <ul class="list-sidebar bg-defoult">
+            <li> <a href="#" data-toggle="collapse" data-target="#players" class="collapsed active"> <i class="fa fa-th-large"></i> <span class="nav-label"> Đơn hàng </span> <span class="fa fa-chevron-left pull-right"></span> </a>
+                <ul class="sub-menu collapse" id="players">
+                    <li><a href="<?=ROOT?>stafforder">Hiện đơn hàng</a></li>
+                    <!-- <li><a href="<?=ROOT?>cart">Giỏ Hàng</a></li> -->
+                    <!-- <li><a href="<?=ROOT?>players/AddPlayer">Add players</a></li> -->
+                </ul>
+            </li>
+        
+        </ul>
+        <?php endif; ?>
     </div>
 </aside>
 

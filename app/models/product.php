@@ -58,7 +58,7 @@ class Product{
             $arr['ProductID'] = $GET['order_ProductID']; 
             $arr['Quantity'] = $GET['order_SoLuong']; 
             $arr['Amount'] = $GET['order_ThanhTien']; 
-            $arr['Note'] = 'chua co'; 
+            $arr['Note'] = $GET['order_Note']; 
             $arr['RegisterCode'] = get_random_string_max(10); 
             // $arr["FullName"] = $POST['added_player_FullName'];
             // $arr['ClubID'] = $this->get_ClubID_with_name($POST['added_player_ClubName']); //need to select
