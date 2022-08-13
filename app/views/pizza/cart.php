@@ -2,35 +2,64 @@
 
 <!-- MAIN -->
 <main role="main" class="scroll d-flex home-page">
-  <?php $this->view("pizza/layout/sidebar", $data) ?>
+    <?php $this->view("pizza/layout/sidebar", $data) ?>
+    <div >
+        <table class="table table-fluid" id="allPlayersTable">
+            <thead>
+                <tr>
+                    <!-- <th scope="col">ID</th> -->
+                    <th scope="col">ComboName</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Amount</th>
+                    <!-- <th scope="col">Option</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- <td><?= $data['products_list']->ProductID ?></td> -->
+                    <td ><?= $data['products_list']->ComboName ?></td>
+                    <td><?= $data['products_list']->Description ?></td>
+                    <td><?= $data['products_list']->Price ?></td>
+                    <td><?= $_SESSION['so_luong'] ?></td>
+                    <!-- <td>
+                        <button class="btn btn-dark">
+                            <a data-toggle="modal" detaches=<?=str_replace(" ","__",json_encode($row))?> data-target="#update_player" >Update</a> 
+                        </button>
+                    </td> -->
+                </tr>
+            </tbody>
 
-    <table class="table table-fluid" id="allPlayersTable">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">ComboName</th>
-                <th scope="col">Description</th>
-                <th scope="col">Price</th>
-                <th scope="col">Option</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($data['products_list'] as $row) : ?>
-            <tr>
-                <td><?= $row->ProductID ?></td>
-                <td ><?= $row->ComboName ?></td>
-                <td><?= $row->Description ?></td>
-                <td><?= $row->Price ?></td>
-                <td>
-                    <button class="btn btn-dark">
-                        <a data-toggle="modal" detaches=<?=str_replace(" ","__",json_encode($row))?> data-target="#update_player" >Buy</a> 
-                    </button>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-        </tbody>
+        </table>
+        <div>
+            <form method="GET">
+                <div class="form-item" hidden={true}>
+                        <input id="ProductID" type="text" name="add_ProductID" placeholder="">
+                </div>
+                <div class="form-item">
+                    <label for="thanh_tien">Thành tiền: </label>
+                    <span id="thanh_tien"><?php
+                     echo $_SESSION['so_luong'] * $data['products_list']->Price;
+                     ?></span>
+                </div>
+                <br/>
+                <div class="form-item">
+                    <label for="SoLuongMua">Tên</label>
+                    <input id="SoLuongMua" type="text" name="so_luong_mua">
+                </div>
+                <div class="form-item">
+                    <label for="SoLuongMua">Địa chỉ</label>
+                    <input id="SoLuongMua" type="text" name="so_luong_mua">
+                </div>
+                <div class="form-item">
+                    <label for="SoLuongMua">Số điện thoại</label>
+                    <input id="SoLuongMua" type="text" name="so_luong_mua">
+                </div>
+                <input id="update_button" class="btn btn btn-dark" name="submit" type="submit" value="Dat hang"></input>
+            </form>
+        </div>
+    </div>
 
-    </table>
 </main>
 
 <div class="modal fade" id="update_player" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -16,7 +16,7 @@
             <li> <a href="#" data-toggle="collapse" data-target="#players" class="collapsed active"> <i class="fa fa-th-large"></i> <span class="nav-label"> Pizza </span> <span class="fa fa-chevron-left pull-right"></span> </a>
                 <ul class="sub-menu collapse" id="players">
                     <li><a href="<?=ROOT?>menu">Menu</a></li>
-                    <li><a href="<?=ROOT?>players/search">Giỏ Hàng</a></li>
+                    <li><a href="<?=ROOT?>cart">Giỏ Hàng</a></li>
                     <!-- <li><a href="<?=ROOT?>players/AddPlayer">Add players</a></li> -->
                 </ul>
             </li>

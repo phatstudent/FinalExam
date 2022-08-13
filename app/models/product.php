@@ -21,4 +21,24 @@ class Product{
         return false;
     }
 
+    function get_one_product($ProductID)
+    {
+
+        $querry = 
+        "select ProductID, ComboName, Description, Price
+        from pizza
+        where ProductID = '$ProductID'
+        limit 1 ";
+
+        $DB = new Database();
+
+        $data = $DB->read($querry);
+        if (is_array($data)) {
+
+            return $data;
+        }
+
+        return false;
+    }
+
 }
