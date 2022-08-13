@@ -12,6 +12,6 @@ class Signup extends Controller{
             $user->login($_POST);
         }
 
-        $this->view("minima/signup", $data);
+        $this->view("pizza/signup", $data);
     }
 }

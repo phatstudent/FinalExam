@@ -54,9 +54,9 @@
                   <li class="nav-item">
                     <a class="nav-link" href="<?=ROOT?>login">Login</a>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link" href="<?=ROOT?>signup">Signup</a>
-                  </li>
+                  </li> -->
                 <?php else: ?>
                   <li class="nav-item">
                     <a class="nav-link" href="<?=ROOT?>logout">Logout</a>

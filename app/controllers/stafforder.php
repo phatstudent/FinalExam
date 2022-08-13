@@ -20,5 +20,54 @@ class Stafforder extends Controller{
 
         $this->view("pizza/order", $data);
     }
+
+    function xac_nhan_don($orderID=''){
+        $data["page_title"] = "order";
+
+        $order = $this->loadModel("order");
+
+        $order->updateOrder($orderID,"DAXACNHAN");
+        
+        $this->view("pizza/order", $data);
+    }
+    function tien_hanh_don($orderID=''){
+        $data["page_title"] = "order";
+
+        $order = $this->loadModel("order");
+
+        $order->updateOrder($orderID,"TIENHANH");
+        
+        $this->view("pizza/order", $data);
+    }
+    function giao_don($orderID=''){
+        $data["page_title"] = "order";
+
+        $order = $this->loadModel("order");
+
+        $order->updateOrder($orderID,"DANGGIAO");
+        
+        $this->view("pizza/order", $data);
+    }
+    function hoan_tat_don($orderID=''){
+        $data["page_title"] = "order";
+
+        $order = $this->loadModel("order");
+
+        $order->updateOrder($orderID,"HOANTAT");
+        
+        $this->view("pizza/order", $data);
+    }
+
+    function huy_don($orderID=''){
+        $data["page_title"] = "order";
+
+        $order = $this->loadModel("order");
+
+        $order->updateOrder($orderID,"HUY");
+        
+        $this->view("pizza/order", $data);
+    }
+
+    
     
 }

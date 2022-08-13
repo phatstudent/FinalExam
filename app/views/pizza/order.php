@@ -19,6 +19,7 @@
                 <th scope="col">Amount</th>
                 <th scope="col">Note</th>
                 <th scope="col">RegisterCode</th>
+                <th scope="col">Option</th>
             </tr>
         </thead>
         <tbody>
@@ -36,11 +37,34 @@
                 <td><?= $row->Amount ?></td>
                 <td><?= $row->Note ?></td>
                 <td><?= $row->RegisterCode ?></td>
-                <!-- <td>
-                    <button class="btn btn-dark">
-                        <a data-toggle="modal" detaches=<?=str_replace(" ","__",json_encode($row))?> data-target="#update_player" >Buy</a> 
-                    </button>
-                </td> -->
+                <?php if($row->Status != "HUY"): ?>
+                    <td>
+                        <?php if($row->Status == "DAKHOITAO"): ?>
+                            <button class="btn btn-warning">
+                                <a href="<?= ROOT ?>stafforder/xac_nhan_don/<?= $row->OrderID ?>">Xác nhận</a> 
+                            </button>
+                        <?php elseif($row->Status == "DAXACNHAN"): ?>
+                            <button class="btn btn-warning">
+                                <a href="<?= ROOT ?>stafforder/tien_hanh_don/<?= $row->OrderID ?>">Tien hanh</a> 
+                            </button>
+                        <?php elseif($row->Status == "TIENHANH"): ?>
+                            <button class="btn btn-warning">
+                                <a href="<?= ROOT ?>stafforder/giao_don/<?= $row->OrderID ?>">GIAO</a> 
+                            </button>
+                        <?php elseif($row->Status == "DANGGIAO"): ?>
+                            <button class="btn btn-warning">
+                                <a href="<?= ROOT ?>stafforder/hoan_tat_don/<?= $row->OrderID ?>">Hoan tat</a> 
+                            </button>
+      
+                        <?php endif; ?>
+
+                        <?php if($row->Status != "HOANTAT"): ?>
+                            <button class="btn btn-dark">
+                                <a href="<?= ROOT ?>stafforder/huy_don/<?= $row->OrderID ?>">Hủy</a> 
+                            </button>
+                        <?php endif; ?>
+                    </td>
+                <?php endif; ?>
             </tr>
         <?php endforeach; ?>
         </tbody>
